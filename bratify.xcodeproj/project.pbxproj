@@ -13,6 +13,7 @@
 		4DFB9CB42C5187DD00E73F93 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB9CB32C5187DD00E73F93 /* MessagesViewController.swift */; };
 		4DFB9CB72C5187DD00E73F93 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4DFB9CB62C5187DD00E73F93 /* Base */; };
 		4DFB9CB92C5187DD00E73F93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFB9CB82C5187DD00E73F93 /* Assets.xcassets */; };
+		4DFB9CC72C51E0B500E73F93 /* BorderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB9CC62C51E0B500E73F93 /* BorderExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		4DFB9CB62C5187DD00E73F93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4DFB9CB82C5187DD00E73F93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DFB9CBA2C5187DD00E73F93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DFB9CC62C51E0B500E73F93 /* BorderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				4DFB9CB52C5187DD00E73F93 /* MainInterface.storyboard */,
 				4DFB9CB82C5187DD00E73F93 /* Assets.xcassets */,
 				4DFB9CBA2C5187DD00E73F93 /* Info.plist */,
+				4DFB9CC62C51E0B500E73F93 /* BorderExtension.swift */,
 			);
 			path = "bratify MessagesExtension";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFB9CB42C5187DD00E73F93 /* MessagesViewController.swift in Sources */,
+				4DFB9CC72C51E0B500E73F93 /* BorderExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -342,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -363,6 +367,7 @@
 				INFOPLIST_FILE = "bratify MessagesExtension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = bratify;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,6 +394,7 @@
 				INFOPLIST_FILE = "bratify MessagesExtension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = bratify;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,6 +422,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.apinis.bratify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -437,6 +444,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.apinis.bratify;
 				PRODUCT_NAME = "$(TARGET_NAME)";

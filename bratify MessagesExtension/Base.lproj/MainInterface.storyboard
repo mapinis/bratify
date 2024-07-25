@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,34 +16,96 @@
                     <view key="view" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMn-AG-sqS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <subviews>
-                            <button opaque="NO" contentMode="center" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZT-AH-YAA">
-                                <rect key="frame" x="80" y="226.66666666666663" width="160" height="75"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="write something" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecG-Yb-3fX">
+                                <rect key="frame" x="5" y="289" width="230" height="34"/>
+                                <color key="backgroundColor" red="0.55294120309999995" green="0.73333334920000004" blue="0.2235293984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="1sX-Ns-CLl"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="BTP-VZ-k5b"/>
-                                    <constraint firstAttribute="width" secondItem="OZT-AH-YAA" secondAttribute="height" multiplier="32:15" id="k2i-Hd-0vy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="O9Q-8S-p82"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="textEntryChanged" destination="ObA-dk-sSI" eventType="editingDidEnd" id="oTG-Gg-nEG"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfz-9m-giA">
+                                <rect key="frame" x="240" y="289" width="76" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zfz-9m-giA" secondAttribute="height" multiplier="38:17" id="cfx-2P-b9S"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="eeU-gj-ny5"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="uZI-F1-2ag"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="bratify" cornerStyle="large" buttonSize="large">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="bratify" buttonSize="medium">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonPressed" destination="ObA-dk-sSI" eventType="touchUpInside" id="apb-d5-8Ab"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHw-Jd-UOj" userLabel="PreviewHolder">
+                                <rect key="frame" x="60" y="69" width="200" height="200"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="preview" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJX-qO-TBc" userLabel="PreviewTextView">
+                                        <rect key="frame" x="5" y="68" width="190" height="64.333333333333314"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="42"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.54117647059999996" green="0.80784313730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RJX-qO-TBc" firstAttribute="centerX" secondItem="vHw-Jd-UOj" secondAttribute="centerX" id="2sp-N3-2OA"/>
+                                    <constraint firstItem="RJX-qO-TBc" firstAttribute="height" relation="lessThanOrEqual" secondItem="vHw-Jd-UOj" secondAttribute="height" constant="-10" id="5KZ-NK-TLG"/>
+                                    <constraint firstAttribute="width" secondItem="vHw-Jd-UOj" secondAttribute="height" id="PUf-YX-OFO"/>
+                                    <constraint firstItem="RJX-qO-TBc" firstAttribute="width" secondItem="vHw-Jd-UOj" secondAttribute="width" constant="-10" id="R3X-Vn-de6"/>
+                                    <constraint firstItem="RJX-qO-TBc" firstAttribute="centerY" secondItem="vHw-Jd-UOj" secondAttribute="centerY" id="mcD-VC-Iw2"/>
+                                    <constraint firstAttribute="width" constant="200" id="y1m-9X-etk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LDy-ih-0nr"/>
                         <color key="backgroundColor" red="0.54117647059999996" green="0.80784313730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.33128378879477677" green="0.4426775759206184" blue="0.13286356628027127" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="OZT-AH-YAA" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="6hN-Ub-j7A"/>
-                            <constraint firstItem="OZT-AH-YAA" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="GGM-fy-yIg"/>
+                            <constraint firstItem="zfz-9m-giA" firstAttribute="bottom" secondItem="ecG-Yb-3fX" secondAttribute="bottom" id="4Z6-VQ-ban"/>
+                            <constraint firstItem="zfz-9m-giA" firstAttribute="leading" secondItem="ecG-Yb-3fX" secondAttribute="trailing" constant="5" id="fx6-xm-MPD"/>
+                            <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="zfz-9m-giA" secondAttribute="trailing" constant="4" id="gzN-Vp-giT"/>
+                            <constraint firstItem="zfz-9m-giA" firstAttribute="top" secondItem="vHw-Jd-UOj" secondAttribute="bottom" constant="20" id="pss-bA-sSl"/>
+                            <constraint firstItem="ecG-Yb-3fX" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="5" id="sad-Mv-WzO"/>
+                            <constraint firstItem="vHw-Jd-UOj" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="x5g-pP-P6f"/>
+                            <constraint firstItem="vHw-Jd-UOj" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="10" id="zcA-Rh-Ix6"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="bratifyButton" destination="zfz-9m-giA" id="pNf-nt-pnJ"/>
+                        <outlet property="preview" destination="vHw-Jd-UOj" id="OV8-tF-bfn"/>
+                        <outlet property="previewText" destination="RJX-qO-TBc" id="GPs-Wp-IHn"/>
+                        <outlet property="textEntry" destination="ecG-Yb-3fX" id="jm9-mc-lfO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="129.7709923664122" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
