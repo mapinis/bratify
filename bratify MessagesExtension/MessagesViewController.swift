@@ -7,12 +7,13 @@
 
 import UIKit
 import Messages
+import Foundation
 
 class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textEntry: UITextField!
     @IBOutlet weak var previewText: UITextView!
-    @IBOutlet weak var preview: UIView! // TODO: - Use this to generate image
+    @IBOutlet weak var preview: UIView!
     @IBOutlet weak var bratifyButton: UIButton!
     
     override func viewDidLoad() {
@@ -32,11 +33,18 @@ class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
         return true
     }
     
+    // on editing begin, disable the bratify button
+    @IBAction func textEntryEditBegin() {
+        bratifyButton.isEnabled = false
+    }
+    
     // runs on change to text entry
-    // edut the cover preview
-    @IBAction func textEntryChanged() {
+    // edit the cover preview
+    // reenable bratify button if there is text
+    @IBAction func textEntryEditEnd() {
         if let text = textEntry.text, !text.isEmpty {
             previewText.text = text.lowercased()
+            bratifyButton.isEnabled = true
         } else {
             previewText.text = "preview"
         }
@@ -47,21 +55,45 @@ class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
         
     @IBAction func buttonPressed() {
         // Handles button press
-        //  Get current message
         //  Make image
         //  Clear message
         //  Place image
-       
+        
+        // only do any of this if there is an active conversation
         if let conversation = activeConversation {
-            if let text = textEntry.text {
-                conversation.insertText(text, completionHandler: {error in
-                    if let error = error {
-                        print("Error inserting text: \(error.localizedDescription)")
-                    }
-                })
+            // Button is only enabled if editing is done, but just to make sure
+            textEntry.resignFirstResponder()
+            
+            // make the image
+            let image = preview.asImage()
+            
+            // get a unique URL in temp
+            let fileName = "bratify-" + UUID().uuidString + ".jpg"
+            guard let imageURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName) else {
+                print("Problem generating image URL")
+                return
             }
+            
+            // get jpeg data, 0.4 compression for the style
+            guard let jpegData = image.jpegData(compressionQuality: 0.1) else {
+                print("No image data found, or other problem")
+                return
+            }
+            
+            // write it
+            do {
+                try jpegData.write(to: imageURL)
+            } catch {
+                print("Error writing jpegData to temporary file: \(error.localizedDescription)")
+                return
+            }
+            
+            // now we have a URL and image written to it, we can attach to conversation
+            conversation.insertAttachment(imageURL, withAlternateFilename: fileName, completionHandler: {error in
+                if let error = error {
+                    print("Error attaching image: \(error.localizedDescription)")
+                }
+            })
         }
     }
-    
-    
 }

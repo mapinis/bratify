@@ -25,10 +25,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="textEntryChanged" destination="ObA-dk-sSI" eventType="editingDidEnd" id="oTG-Gg-nEG"/>
+                                    <action selector="textEntryEditBegin" destination="ObA-dk-sSI" eventType="editingDidBegin" id="PTO-s3-PvR"/>
+                                    <action selector="textEntryEditEnd" destination="ObA-dk-sSI" eventType="editingDidEnd" id="OjY-0K-Mbg"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfz-9m-giA">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfz-9m-giA">
                                 <rect key="frame" x="240" y="289" width="76" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zfz-9m-giA" secondAttribute="height" multiplier="38:17" id="cfx-2P-b9S"/>
@@ -64,14 +65,22 @@
                                     <constraint firstAttribute="width" constant="200" id="y1m-9X-etk"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Pu-dd-UHJ" userLabel="PreviewBorder">
+                                <rect key="frame" x="59" y="68" width="202" height="202"/>
+                                <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -80,9 +89,13 @@
                         <color key="backgroundColor" red="0.54117647059999996" green="0.80784313730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.33128378879477677" green="0.4426775759206184" blue="0.13286356628027127" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="3Pu-dd-UHJ" firstAttribute="height" secondItem="vHw-Jd-UOj" secondAttribute="height" constant="2" id="3O1-dD-nU2"/>
                             <constraint firstItem="zfz-9m-giA" firstAttribute="bottom" secondItem="ecG-Yb-3fX" secondAttribute="bottom" id="4Z6-VQ-ban"/>
+                            <constraint firstItem="3Pu-dd-UHJ" firstAttribute="centerY" secondItem="vHw-Jd-UOj" secondAttribute="centerY" id="EHs-bh-05E"/>
                             <constraint firstItem="zfz-9m-giA" firstAttribute="leading" secondItem="ecG-Yb-3fX" secondAttribute="trailing" constant="5" id="fx6-xm-MPD"/>
                             <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="zfz-9m-giA" secondAttribute="trailing" constant="4" id="gzN-Vp-giT"/>
+                            <constraint firstItem="3Pu-dd-UHJ" firstAttribute="width" secondItem="vHw-Jd-UOj" secondAttribute="width" constant="2" id="muf-qH-bnS"/>
+                            <constraint firstItem="3Pu-dd-UHJ" firstAttribute="centerX" secondItem="vHw-Jd-UOj" secondAttribute="centerX" id="nGs-nS-aZD"/>
                             <constraint firstItem="zfz-9m-giA" firstAttribute="top" secondItem="vHw-Jd-UOj" secondAttribute="bottom" constant="20" id="pss-bA-sSl"/>
                             <constraint firstItem="ecG-Yb-3fX" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="5" id="sad-Mv-WzO"/>
                             <constraint firstItem="vHw-Jd-UOj" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="x5g-pP-P6f"/>
