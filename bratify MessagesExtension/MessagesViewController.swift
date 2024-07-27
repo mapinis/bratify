@@ -43,10 +43,38 @@ class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
     // reenable bratify button if there is text
     @IBAction func textEntryEditEnd() {
         if let text = textEntry.text, !text.isEmpty {
+            let oldText = previewText.text!
             previewText.text = text.lowercased()
+            
+            // font size control
+            let font = previewText.font
+            // if the new text is longer than the old text, decrease size as needed (down to 1)
+            if var font = font {
+                if text.count >= oldText.count {
+                    while font.pointSize > 1 && previewText.bounds.height > preview.bounds.height - 25 {
+                        // while pointSize is greater than 1 and contentSize is too large
+                        // get new font with smaller size and set it
+                        font = font.withSize(font.pointSize - 1)
+                        previewText.font = font
+                    }
+                } else {
+                    // if the new text is shorter than the old text, increase size as needed (up to 42)
+                    while font.pointSize < 42 && previewText.bounds.height <= preview.bounds.height - 25 {
+                        // while pointSize is less than 42 and contentSize fits
+                        // get new font with bigger size and set it
+                        font = font.withSize(font.pointSize + 1)
+                        previewText.font = font
+                    }
+                }
+            }
+            
+            // enable button
             bratifyButton.isEnabled = true
+            
         } else {
             previewText.text = "preview"
+            // set font size to 42
+            previewText.font = previewText.font?.withSize(42)
         }
     }
     
@@ -75,7 +103,7 @@ class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
             }
             
             // get jpeg data, 0.4 compression for the style
-            guard let jpegData = image.jpegData(compressionQuality: 0.1) else {
+            guard let jpegData = image.jpegData(compressionQuality: 0.01) else {
                 print("No image data found, or other problem")
                 return
             }
