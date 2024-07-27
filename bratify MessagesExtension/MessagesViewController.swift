@@ -33,24 +33,15 @@ class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
         return true
     }
     
-    // on editing begin, disable the bratify button
-    @IBAction func textEntryEditBegin() {
-        bratifyButton.isEnabled = false
-    }
-    
-    // runs on change to text entry
-    // edit the cover preview
-    // reenable bratify button if there is text
-    @IBAction func textEntryEditEnd() {
+    @IBAction func textEntryEdit() {
         if let text = textEntry.text, !text.isEmpty {
             previewLabel.text = text
-            // enable button
             bratifyButton.isEnabled = true
         } else {
             previewLabel.text = "preview"
+            bratifyButton.isEnabled = false
         }
     }
-    
     
     // MARK: - Button Handling
         

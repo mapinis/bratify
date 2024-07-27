@@ -24,8 +24,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="textEntryEditBegin" destination="ObA-dk-sSI" eventType="editingDidBegin" id="PTO-s3-PvR"/>
-                                    <action selector="textEntryEditEnd" destination="ObA-dk-sSI" eventType="editingDidEnd" id="OjY-0K-Mbg"/>
+                                    <action selector="textEntryEdit" destination="ObA-dk-sSI" eventType="editingChanged" id="2g5-cL-v2l"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfz-9m-giA">
