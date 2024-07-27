@@ -12,7 +12,7 @@ import Foundation
 class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textEntry: UITextField!
-    @IBOutlet weak var previewText: UITextView!
+    @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var preview: UIView!
     @IBOutlet weak var bratifyButton: UIButton!
     
@@ -24,7 +24,7 @@ class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         textEntry.delegate = self
-        previewText.transform = CGAffineTransform(scaleX: 1.0, y: 1.3)
+        previewLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.3)
     }
     
     // close keyboard on "done"
@@ -43,38 +43,11 @@ class MessagesViewController: MSMessagesAppViewController, UITextFieldDelegate {
     // reenable bratify button if there is text
     @IBAction func textEntryEditEnd() {
         if let text = textEntry.text, !text.isEmpty {
-            let oldText = previewText.text!
-            previewText.text = text.lowercased()
-            
-            // font size control
-            let font = previewText.font
-            // if the new text is longer than the old text, decrease size as needed (down to 1)
-            if var font = font {
-                if text.count >= oldText.count {
-                    while font.pointSize > 1 && previewText.bounds.height > preview.bounds.height - 25 {
-                        // while pointSize is greater than 1 and contentSize is too large
-                        // get new font with smaller size and set it
-                        font = font.withSize(font.pointSize - 1)
-                        previewText.font = font
-                    }
-                } else {
-                    // if the new text is shorter than the old text, increase size as needed (up to 42)
-                    while font.pointSize < 42 && previewText.bounds.height <= preview.bounds.height - 25 {
-                        // while pointSize is less than 42 and contentSize fits
-                        // get new font with bigger size and set it
-                        font = font.withSize(font.pointSize + 1)
-                        previewText.font = font
-                    }
-                }
-            }
-            
+            previewLabel.text = text
             // enable button
             bratifyButton.isEnabled = true
-            
         } else {
-            previewText.text = "preview"
-            // set font size to 42
-            previewText.font = previewText.font?.withSize(42)
+            previewLabel.text = "preview"
         }
     }
     

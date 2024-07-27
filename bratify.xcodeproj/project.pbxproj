@@ -13,7 +13,7 @@
 		4DFB9CB42C5187DD00E73F93 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB9CB32C5187DD00E73F93 /* MessagesViewController.swift */; };
 		4DFB9CB72C5187DD00E73F93 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4DFB9CB62C5187DD00E73F93 /* Base */; };
 		4DFB9CB92C5187DD00E73F93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFB9CB82C5187DD00E73F93 /* Assets.xcassets */; };
-		4DFB9CC72C51E0B500E73F93 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB9CC62C51E0B500E73F93 /* UIViewExtensions.swift */; };
+		4DFB9CC72C51E0B500E73F93 /* UIView+Border+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB9CC62C51E0B500E73F93 /* UIView+Border+Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		4DFB9CB62C5187DD00E73F93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4DFB9CB82C5187DD00E73F93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DFB9CBA2C5187DD00E73F93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4DFB9CC62C51E0B500E73F93 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		4DFB9CC62C51E0B500E73F93 /* UIView+Border+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border+Image.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D273C9B2C55555D00B3BD16 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DFB9CC62C51E0B500E73F93 /* UIView+Border+Image.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4DFB9C9B2C5187DC00E73F93 = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +110,11 @@
 		4DFB9CB22C5187DD00E73F93 /* bratify MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				4D273C9B2C55555D00B3BD16 /* Extensions */,
 				4DFB9CB32C5187DD00E73F93 /* MessagesViewController.swift */,
 				4DFB9CB52C5187DD00E73F93 /* MainInterface.storyboard */,
 				4DFB9CB82C5187DD00E73F93 /* Assets.xcassets */,
 				4DFB9CBA2C5187DD00E73F93 /* Info.plist */,
-				4DFB9CC62C51E0B500E73F93 /* UIViewExtensions.swift */,
 			);
 			path = "bratify MessagesExtension";
 			sourceTree = "<group>";
@@ -211,7 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFB9CB42C5187DD00E73F93 /* MessagesViewController.swift in Sources */,
-				4DFB9CC72C51E0B500E73F93 /* UIViewExtensions.swift in Sources */,
+				4DFB9CC72C51E0B500E73F93 /* UIView+Border+Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
